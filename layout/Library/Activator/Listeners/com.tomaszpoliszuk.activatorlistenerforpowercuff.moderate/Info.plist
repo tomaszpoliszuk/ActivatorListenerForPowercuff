@@ -1,0 +1,5 @@
+{
+	title = "Throttling set to 3";
+	description = "Powercuff option set to 'Moderate'";
+	group = "Powercuff";
+}

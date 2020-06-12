@@ -1,0 +1,5 @@
+{
+	title = "Throttling disabled";
+	description = "Powercuff option set to 'None'";
+	group = "Powercuff";
+}
