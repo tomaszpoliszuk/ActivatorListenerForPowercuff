@@ -21,6 +21,9 @@
 		[[NSUserDefaults standardUserDefaults] setObject:@NO forKey:@"RequireLowPowerMode" inDomain:@"/var/mobile/Library/Preferences/com.rpetrich.powercuff.plist"];
 	}
 }
+- (BOOL)activator:(LAActivator *)activator requiresNeedsPoweredDisplayForListenerName:(NSString *)listenerName {
+	return NO;
+}
 - (void)dealloc {
 	[super dealloc];
 }
@@ -39,6 +42,9 @@
 		[[NSUserDefaults standardUserDefaults] setObject:@1 forKey:@"PowerMode" inDomain:@"/var/mobile/Library/Preferences/com.rpetrich.powercuff.plist"];
 		[[NSUserDefaults standardUserDefaults] setObject:@NO forKey:@"RequireLowPowerMode" inDomain:@"/var/mobile/Library/Preferences/com.rpetrich.powercuff.plist"];
 	}
+}
+- (BOOL)activator:(LAActivator *)activator requiresNeedsPoweredDisplayForListenerName:(NSString *)listenerName {
+	return NO;
 }
 - (void)dealloc {
 	[super dealloc];
@@ -59,6 +65,9 @@
 		[[NSUserDefaults standardUserDefaults] setObject:@NO forKey:@"RequireLowPowerMode" inDomain:@"/var/mobile/Library/Preferences/com.rpetrich.powercuff.plist"];
 	}
 }
+- (BOOL)activator:(LAActivator *)activator requiresNeedsPoweredDisplayForListenerName:(NSString *)listenerName {
+	return NO;
+}
 - (void)dealloc {
 	[super dealloc];
 }
@@ -78,6 +87,9 @@
 		[[NSUserDefaults standardUserDefaults] setObject:@NO forKey:@"RequireLowPowerMode" inDomain:@"/var/mobile/Library/Preferences/com.rpetrich.powercuff.plist"];
 	}
 }
+- (BOOL)activator:(LAActivator *)activator requiresNeedsPoweredDisplayForListenerName:(NSString *)listenerName {
+	return NO;
+}
 - (void)dealloc {
 	[super dealloc];
 }
@@ -96,6 +108,9 @@
 		[[NSUserDefaults standardUserDefaults] setObject:@4 forKey:@"PowerMode" inDomain:@"/var/mobile/Library/Preferences/com.rpetrich.powercuff.plist"];
 		[[NSUserDefaults standardUserDefaults] setObject:@NO forKey:@"RequireLowPowerMode" inDomain:@"/var/mobile/Library/Preferences/com.rpetrich.powercuff.plist"];
 	}
+}
+- (BOOL)activator:(LAActivator *)activator requiresNeedsPoweredDisplayForListenerName:(NSString *)listenerName {
+	return NO;
 }
 - (void)dealloc {
 	[super dealloc];
