@@ -2,4 +2,5 @@
 	title = "Throttling set to 4";
 	description = "Powercuff option set to 'Heavy'";
 	group = "Powercuff";
+	"compatible-modes" = ("springboard", "lockscreen", "application");
 }
