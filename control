@@ -1,9 +1,9 @@
 Package: com.tomaszpoliszuk.activatorlistenerforpowercuff
 Name: Activator Listener for Powercuff tweak
-Version: 1.0.1
+Version: 1.0.2
 Architecture: iphoneos-arm
 Depends: firmware (>= 12.0), mobilesubstrate, libactivator, com.rpetrich.powercuff
-Description: Activator Listener for Powercuff allows you to automate Powercuff tweak using Activator.
+Description: Automate Powercuff tweak using Activator.
 Author: Tomasz Poliszuk
 Section: Addons (Activator)
 dev: tomaszpoliszuk

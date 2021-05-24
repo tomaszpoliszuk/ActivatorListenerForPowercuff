@@ -21,6 +21,8 @@
 #import <notify.h>
 
 static NSString *const settingsChanged = @"com.rpetrich.powercuff.settingschanged";
+static NSString *const powercuffSettingsPath = @"/var/mobile/Library/Preferences/com.rpetrich.powercuff.plist";
+static NSString *const bundleID = @"com.tomaszpoliszuk.activatorlistenerforpowercuff";
 
 @interface NSUserDefaults (ActivatorListenerForPowercuff)
 - (id)objectForKey:(NSString *)key inDomain:(NSString *)domain;
@@ -32,12 +34,12 @@ static NSString *const settingsChanged = @"com.rpetrich.powercuff.settingschange
 @implementation ActivatorListenerForPowercuffNone
 + (void)load {
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-	[[LAActivator sharedInstance] registerListener:[self new] forName:@"com.tomaszpoliszuk.activatorlistenerforpowercuff.none"];
+	[[LAActivator sharedInstance] registerListener:[self new] forName:[NSString stringWithFormat:@"%@.none", bundleID]];
 	[pool release];
 }
 - (void)activator:(LAActivator *)activator receiveEvent:(LAEvent *)event {
-	[[NSUserDefaults standardUserDefaults] setObject:@0 forKey:@"PowerMode" inDomain:@"/var/mobile/Library/Preferences/com.rpetrich.powercuff.plist"];
-	[[NSUserDefaults standardUserDefaults] setObject:@NO forKey:@"RequireLowPowerMode" inDomain:@"/var/mobile/Library/Preferences/com.rpetrich.powercuff.plist"];
+	[[NSUserDefaults standardUserDefaults] setObject:@0 forKey:@"PowerMode" inDomain:powercuffSettingsPath];
+	[[NSUserDefaults standardUserDefaults] setObject:@NO forKey:@"RequireLowPowerMode" inDomain:powercuffSettingsPath];
 	CFNotificationCenterPostNotification(CFNotificationCenterGetDarwinNotifyCenter(), (CFStringRef)settingsChanged, NULL, NULL, YES);
 }
 - (BOOL)activator:(LAActivator *)activator requiresNeedsPoweredDisplayForListenerName:(NSString *)listenerName {
@@ -53,12 +55,12 @@ static NSString *const settingsChanged = @"com.rpetrich.powercuff.settingschange
 @implementation ActivatorListenerForPowercuff
 + (void)load {
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-	[[LAActivator sharedInstance] registerListener:[self new] forName:@"com.tomaszpoliszuk.activatorlistenerforpowercuff.nominal"];
+	[[LAActivator sharedInstance] registerListener:[self new] forName:[NSString stringWithFormat:@"%@.nominal", bundleID]];
 	[pool release];
 }
 - (void)activator:(LAActivator *)activator receiveEvent:(LAEvent *)event {
-	[[NSUserDefaults standardUserDefaults] setObject:@1 forKey:@"PowerMode" inDomain:@"/var/mobile/Library/Preferences/com.rpetrich.powercuff.plist"];
-	[[NSUserDefaults standardUserDefaults] setObject:@NO forKey:@"RequireLowPowerMode" inDomain:@"/var/mobile/Library/Preferences/com.rpetrich.powercuff.plist"];
+	[[NSUserDefaults standardUserDefaults] setObject:@1 forKey:@"PowerMode" inDomain:powercuffSettingsPath];
+	[[NSUserDefaults standardUserDefaults] setObject:@NO forKey:@"RequireLowPowerMode" inDomain:powercuffSettingsPath];
 	CFNotificationCenterPostNotification(CFNotificationCenterGetDarwinNotifyCenter(), (CFStringRef)settingsChanged, NULL, NULL, YES);
 }
 - (BOOL)activator:(LAActivator *)activator requiresNeedsPoweredDisplayForListenerName:(NSString *)listenerName {
@@ -74,12 +76,12 @@ static NSString *const settingsChanged = @"com.rpetrich.powercuff.settingschange
 @implementation ActivatorListenerForPowercuffLight
 + (void)load {
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-	[[LAActivator sharedInstance] registerListener:[self new] forName:@"com.tomaszpoliszuk.activatorlistenerforpowercuff.light"];
+	[[LAActivator sharedInstance] registerListener:[self new] forName:[NSString stringWithFormat:@"%@.light", bundleID]];
 	[pool release];
 }
 - (void)activator:(LAActivator *)activator receiveEvent:(LAEvent *)event {
-	[[NSUserDefaults standardUserDefaults] setObject:@2 forKey:@"PowerMode" inDomain:@"/var/mobile/Library/Preferences/com.rpetrich.powercuff.plist"];
-	[[NSUserDefaults standardUserDefaults] setObject:@NO forKey:@"RequireLowPowerMode" inDomain:@"/var/mobile/Library/Preferences/com.rpetrich.powercuff.plist"];
+	[[NSUserDefaults standardUserDefaults] setObject:@2 forKey:@"PowerMode" inDomain:powercuffSettingsPath];
+	[[NSUserDefaults standardUserDefaults] setObject:@NO forKey:@"RequireLowPowerMode" inDomain:powercuffSettingsPath];
 	CFNotificationCenterPostNotification(CFNotificationCenterGetDarwinNotifyCenter(), (CFStringRef)settingsChanged, NULL, NULL, YES);
 }
 - (BOOL)activator:(LAActivator *)activator requiresNeedsPoweredDisplayForListenerName:(NSString *)listenerName {
@@ -95,12 +97,12 @@ static NSString *const settingsChanged = @"com.rpetrich.powercuff.settingschange
 @implementation ActivatorListenerForPowercuffModerate
 + (void)load {
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-	[[LAActivator sharedInstance] registerListener:[self new] forName:@"com.tomaszpoliszuk.activatorlistenerforpowercuff.moderate"];
+	[[LAActivator sharedInstance] registerListener:[self new] forName:[NSString stringWithFormat:@"%@.moderate", bundleID]];
 	[pool release];
 }
 - (void)activator:(LAActivator *)activator receiveEvent:(LAEvent *)event {
-	[[NSUserDefaults standardUserDefaults] setObject:@3 forKey:@"PowerMode" inDomain:@"/var/mobile/Library/Preferences/com.rpetrich.powercuff.plist"];
-	[[NSUserDefaults standardUserDefaults] setObject:@NO forKey:@"RequireLowPowerMode" inDomain:@"/var/mobile/Library/Preferences/com.rpetrich.powercuff.plist"];
+	[[NSUserDefaults standardUserDefaults] setObject:@3 forKey:@"PowerMode" inDomain:powercuffSettingsPath];
+	[[NSUserDefaults standardUserDefaults] setObject:@NO forKey:@"RequireLowPowerMode" inDomain:powercuffSettingsPath];
 	CFNotificationCenterPostNotification(CFNotificationCenterGetDarwinNotifyCenter(), (CFStringRef)settingsChanged, NULL, NULL, YES);
 }
 - (BOOL)activator:(LAActivator *)activator requiresNeedsPoweredDisplayForListenerName:(NSString *)listenerName {
@@ -116,12 +118,12 @@ static NSString *const settingsChanged = @"com.rpetrich.powercuff.settingschange
 @implementation ActivatorListenerForPowercuffHeavy
 + (void)load {
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-	[[LAActivator sharedInstance] registerListener:[self new] forName:@"com.tomaszpoliszuk.activatorlistenerforpowercuff.heavy"];
+	[[LAActivator sharedInstance] registerListener:[self new] forName:[NSString stringWithFormat:@"%@.heavy", bundleID]];
 	[pool release];
 }
 - (void)activator:(LAActivator *)activator receiveEvent:(LAEvent *)event {
-	[[NSUserDefaults standardUserDefaults] setObject:@4 forKey:@"PowerMode" inDomain:@"/var/mobile/Library/Preferences/com.rpetrich.powercuff.plist"];
-	[[NSUserDefaults standardUserDefaults] setObject:@NO forKey:@"RequireLowPowerMode" inDomain:@"/var/mobile/Library/Preferences/com.rpetrich.powercuff.plist"];
+	[[NSUserDefaults standardUserDefaults] setObject:@4 forKey:@"PowerMode" inDomain:powercuffSettingsPath];
+	[[NSUserDefaults standardUserDefaults] setObject:@NO forKey:@"RequireLowPowerMode" inDomain:powercuffSettingsPath];
 	CFNotificationCenterPostNotification(CFNotificationCenterGetDarwinNotifyCenter(), (CFStringRef)settingsChanged, NULL, NULL, YES);
 }
 - (BOOL)activator:(LAActivator *)activator requiresNeedsPoweredDisplayForListenerName:(NSString *)listenerName {
