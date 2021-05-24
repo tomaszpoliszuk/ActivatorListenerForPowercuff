@@ -20,7 +20,9 @@
 #import <UIKit/UIKit.h>
 #import <notify.h>
 
-@interface NSUserDefaults (UFS_Category)
+static NSString *const settingsChanged = @"com.rpetrich.powercuff.settingschanged";
+
+@interface NSUserDefaults (ActivatorListenerForPowercuff)
 - (id)objectForKey:(NSString *)key inDomain:(NSString *)domain;
 - (void)setObject:(id)value forKey:(NSString *)key inDomain:(NSString *)domain;
 @end
@@ -36,6 +38,7 @@
 - (void)activator:(LAActivator *)activator receiveEvent:(LAEvent *)event {
 	[[NSUserDefaults standardUserDefaults] setObject:@0 forKey:@"PowerMode" inDomain:@"/var/mobile/Library/Preferences/com.rpetrich.powercuff.plist"];
 	[[NSUserDefaults standardUserDefaults] setObject:@NO forKey:@"RequireLowPowerMode" inDomain:@"/var/mobile/Library/Preferences/com.rpetrich.powercuff.plist"];
+	CFNotificationCenterPostNotification(CFNotificationCenterGetDarwinNotifyCenter(), (CFStringRef)settingsChanged, NULL, NULL, YES);
 }
 - (BOOL)activator:(LAActivator *)activator requiresNeedsPoweredDisplayForListenerName:(NSString *)listenerName {
 	return NO;
@@ -56,6 +59,7 @@
 - (void)activator:(LAActivator *)activator receiveEvent:(LAEvent *)event {
 	[[NSUserDefaults standardUserDefaults] setObject:@1 forKey:@"PowerMode" inDomain:@"/var/mobile/Library/Preferences/com.rpetrich.powercuff.plist"];
 	[[NSUserDefaults standardUserDefaults] setObject:@NO forKey:@"RequireLowPowerMode" inDomain:@"/var/mobile/Library/Preferences/com.rpetrich.powercuff.plist"];
+	CFNotificationCenterPostNotification(CFNotificationCenterGetDarwinNotifyCenter(), (CFStringRef)settingsChanged, NULL, NULL, YES);
 }
 - (BOOL)activator:(LAActivator *)activator requiresNeedsPoweredDisplayForListenerName:(NSString *)listenerName {
 	return NO;
@@ -76,6 +80,7 @@
 - (void)activator:(LAActivator *)activator receiveEvent:(LAEvent *)event {
 	[[NSUserDefaults standardUserDefaults] setObject:@2 forKey:@"PowerMode" inDomain:@"/var/mobile/Library/Preferences/com.rpetrich.powercuff.plist"];
 	[[NSUserDefaults standardUserDefaults] setObject:@NO forKey:@"RequireLowPowerMode" inDomain:@"/var/mobile/Library/Preferences/com.rpetrich.powercuff.plist"];
+	CFNotificationCenterPostNotification(CFNotificationCenterGetDarwinNotifyCenter(), (CFStringRef)settingsChanged, NULL, NULL, YES);
 }
 - (BOOL)activator:(LAActivator *)activator requiresNeedsPoweredDisplayForListenerName:(NSString *)listenerName {
 	return NO;
@@ -96,6 +101,7 @@
 - (void)activator:(LAActivator *)activator receiveEvent:(LAEvent *)event {
 	[[NSUserDefaults standardUserDefaults] setObject:@3 forKey:@"PowerMode" inDomain:@"/var/mobile/Library/Preferences/com.rpetrich.powercuff.plist"];
 	[[NSUserDefaults standardUserDefaults] setObject:@NO forKey:@"RequireLowPowerMode" inDomain:@"/var/mobile/Library/Preferences/com.rpetrich.powercuff.plist"];
+	CFNotificationCenterPostNotification(CFNotificationCenterGetDarwinNotifyCenter(), (CFStringRef)settingsChanged, NULL, NULL, YES);
 }
 - (BOOL)activator:(LAActivator *)activator requiresNeedsPoweredDisplayForListenerName:(NSString *)listenerName {
 	return NO;
@@ -116,6 +122,7 @@
 - (void)activator:(LAActivator *)activator receiveEvent:(LAEvent *)event {
 	[[NSUserDefaults standardUserDefaults] setObject:@4 forKey:@"PowerMode" inDomain:@"/var/mobile/Library/Preferences/com.rpetrich.powercuff.plist"];
 	[[NSUserDefaults standardUserDefaults] setObject:@NO forKey:@"RequireLowPowerMode" inDomain:@"/var/mobile/Library/Preferences/com.rpetrich.powercuff.plist"];
+	CFNotificationCenterPostNotification(CFNotificationCenterGetDarwinNotifyCenter(), (CFStringRef)settingsChanged, NULL, NULL, YES);
 }
 - (BOOL)activator:(LAActivator *)activator requiresNeedsPoweredDisplayForListenerName:(NSString *)listenerName {
 	return NO;
